@@ -1,0 +1,27 @@
+{
+  "lqdfxspeacefulbliss.configuration.title": "LqDFx's Peaceful Bliss Configs",
+  "lqdfxspeacefulbliss.configuration.section.lqdfxspeacefulbliss.common.toml": "Common Settings",
+  "lqdfxspeacefulbliss.configuration.section.lqdfxspeacefulbliss.common.toml.title": "LqDFx's Peaceful Bliss Configs",
+
+  "lqdfxspeacefulbliss.configuration.debug_output": "Debug Output (DEV Option)",
+  "lqdfxspeacefulbliss.configuration.no_surface_spawns": "No Surface Spawns?",
+  "lqdfxspeacefulbliss.configuration.skip_end_dragon": "Skip Ender Dragon Fight",
+  "lqdfxspeacefulbliss.configuration.exclude_mobs": "Mob Exclusion",
+  "lqdfxspeacefulbliss.configuration.defaultAggression": "Mob Aggression",
+  "lqdfxspeacefulbliss.configuration.peacefulbliss": "Common Settings:",
+  "lqdfxspeacefulbliss.configuration.cooldown_ticks": "Aggression cooldown",
+  "lqdfxspeacefulbliss.configuration.peacefulbliss_enabled": "Remove ME!",
+  "lqdfxspeacefulbliss.configuration.in_nether": "Pacify the Nether?",
+
+  "lqdfxspeacefulbliss.configuration.debug_output.tooltip": "Enable Debug Console output. Leave false unless otherwise asked!",
+  "lqdfxspeacefulbliss.configuration.skip_end_dragon.tooltip": "This in not implemented",
+  "lqdfxspeacefulbliss.configuration.peacefulbliss_enabled.tooltip": "Enable or disable the pacifier system",
+  "lqdfxspeacefulbliss.configuration.defaultAggression.tooltip": "Default mob aggression: 0=vanilla, 1=passive, 2=aggressive",
+  "lqdfxspeacefulbliss.configuration.peacefulbliss.button": "Edit",
+  "lqdfxspeacefulbliss.configuration.peacefulbliss.tooltip": "Peaceful experience with Mob spawning",
+  "lqdfxspeacefulbliss.configuration.no_surface_spawns.tooltip": "Turn off surface spawning of Skeletons and Zombies",
+  "lqdfxspeacefulbliss.configuration.exclude_mobs.button": "Edit List",
+  "lqdfxspeacefulbliss.configuration.cooldown_ticks.tooltip": "Aggression cooldown in ticks (min 100 [5 Sec], max 600 [30 sec])",
+  "lqdfxspeacefulbliss.configuration.in_nether.tooltip": "Allow pacification in the Nether?",
+  "lqdfxspeacefulbliss.configuration.exclude_mobs.tooltip": "Mobs excluded from pacification, will have Vanilla Aggression behavior"
+}

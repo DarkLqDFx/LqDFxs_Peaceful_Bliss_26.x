@@ -1,0 +1,18 @@
+Peaceful Bliss Minecraft Mod
+
+For Minecraft 26.1.2
+Neoforge 26.1.2.94
+mod path work.lqdfxnet.lqdfxspeacefulbliss
+
+Goals:
+1) Must work for a multiplayer server as well as a single player world
+2) Mobs be peaceful to players unless provoked
+3) Attribute called mob_aggression has 3 states: 0 Default vanilla behavior, 1 Passive, 2 Aggressive
+4) Mob vs mob must be preserved in accordance with the vanilla gameplay mechanics
+5) Have config file to exclude mobs from the system (state 0)
+6) Timer for cooldown from state 2 to state 1 that is configurable (5 sec min 30 sec max)
+7) Aggression will be universal for all players. IF player A attacks a mob, it is aggressive to all players.
+	- Must be able to extend cooldown if mob is continued to be attacked
+8) Cache system to limit look-ups and server load low
+9) If a mob is spawned for the following reasons, it is always state 0: spawner, trial_spawner, event, reinforcement, jockey, triggered
+10) option to skip Ender Dragon fight on first entrance to the end regardless of the player.

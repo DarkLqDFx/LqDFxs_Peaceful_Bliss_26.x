@@ -1,0 +1,38 @@
+package work.lqdfxnet.lqdfxspeacefulbliss.event;
+
+import net.minecraft.world.entity.Mob;
+import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.fml.common.EventBusSubscriber;
+import net.neoforged.neoforge.event.tick.EntityTickEvent;
+import work.lqdfxnet.lqdfxspeacefulbliss.Utilities.MobAggressionData;
+import work.lqdfxnet.lqdfxspeacefulbliss.Config;
+import work.lqdfxnet.lqdfxspeacefulbliss.Utilities.AggressionManager;
+import work.lqdfxnet.lqdfxspeacefulbliss.LqDFxsPeacefulBliss;
+
+@EventBusSubscriber(modid = LqDFxsPeacefulBliss.MODID)
+public class onMobTick {
+
+    public static void tickMob(Mob mob) {
+        MobAggressionData data = AggressionManager.get(mob);
+        if (data.mobAggression() != 2) return;
+
+        long now = mob.level().getGameTime();
+        long elapsed = now - data.lastAggressionTimestamp();
+
+        int cooldown = Config.cooldown_seconds.getAsInt(); // clamped between min/max
+
+        if (elapsed >= cooldown) {
+            data.setMobAggression(1); // back to passive
+            AggressionManager.update(mob, data);
+        }
+    }
+
+    @SubscribeEvent
+    public static void onMobTickEvent(EntityTickEvent.Pre event) {
+        if (event.getEntity() instanceof Mob mob) {
+            onMobTick.tickMob(mob);
+        }
+    }
+
+
+}

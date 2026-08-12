@@ -1,0 +1,36 @@
+package work.lqdfxnet.lqdfxspeacefulbliss.Utilities;
+
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.world.entity.Mob;
+
+import java.util.Map;
+import java.util.UUID;
+import java.util.concurrent.ConcurrentHashMap;
+
+public final class AggressionManager {
+    private static final Map<UUID, MobAggressionData> CACHE = new ConcurrentHashMap<>();
+
+    public static MobAggressionData get(Mob mob) {
+        return CACHE.computeIfAbsent(mob.getUUID(), uuid -> loadFromEntity(mob));
+    }
+
+    public static void update(Mob mob, MobAggressionData data) {
+        CACHE.put(mob.getUUID(), data);
+        saveToEntity(mob, data);
+    }
+
+    public static void onMobRemoved(Mob mob) {
+        CACHE.remove(mob.getUUID());
+    }
+
+    private static MobAggressionData loadFromEntity(Mob mob) {
+        CompoundTag tag = mob.getPersistentData();
+        return MobAggressionData.load(tag);
+    }
+
+    private static void saveToEntity(Mob mob, MobAggressionData data) {
+        mob.getPersistentData().put("peaceful_bliss", data.save());
+    }
+
+}
+
