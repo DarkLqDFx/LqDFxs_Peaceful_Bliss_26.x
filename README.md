@@ -1,25 +1,30 @@
-
-Installation information
-=======
-
-This template repository can be directly cloned to get you started with a new
-mod. Simply create a new repository cloned from this one, by following the
-instructions provided by [GitHub](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template).
-
-Once you have your clone, simply open the repository in the IDE of your choice. The usual recommendation for an IDE is either IntelliJ IDEA or Eclipse.
-
-If at any point you are missing libraries in your IDE, or you've run into problems you can
-run `gradlew --refresh-dependencies` to refresh the local cache. `gradlew clean` to reset everything 
-{this does not affect your code} and then start the process again.
-
-Mapping Names:
-============
-By default, the MDK is configured to use the official mapping names from Mojang for methods and fields 
-in the Minecraft codebase. These names are covered by a specific license. All modders should be aware of this
-license. For the latest license text, refer to the mapping file itself, or the reference copy here:
-https://github.com/NeoForged/NeoForm/blob/main/Mojang.md
-
-Additional Resources: 
+Peaceful Bliss
 ==========
-Community Documentation: https://docs.neoforged.net/  
-NeoForged Discord: https://discord.neoforged.net/
+A Semi Peaceful experience without Peaceful Mode.
+==========
+- Mobs are peaceful to players unless provoked
+
+- Mob vs Mob has been preserved in accordance with Vanilla gameplay mechanics
+
+- Aggression is universial for all players! If attacked, Mob will target any
+  player.
+
+- Aggression runs on a cooldown timer that is configurable.
+
+- Not all Mobs are peaceful, there are some special scenerios that Vanilla
+  gameplay mechanics are preserved. Boss fights and spawners for example.
+
+- Option to disable surface spawns in the Overworld.
+
+- Option to make the Nether peaceful.
+
+- Option to add/remove Excluded mobs.
+
+- Option to change the Aggression cooldown ticks.
+
+Note:
+==========
+* Works for Client/Server Side. Designed for Server Side.
+* Has not been tested on Multiplayer servers, please
+  let me know if it doesnt work and updates will be
+  made or feature will be removed.
