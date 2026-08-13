@@ -10,20 +10,15 @@ import net.neoforged.neoforge.common.ModConfigSpec;
 import java.util.List;
 
 @EventBusSubscriber
-// An example config class. This is not required, but it's a good idea to have one to keep your config organized.
-// Demonstrates how to use Neo's config APIs
 public class Config {
 
     private static final ModConfigSpec.Builder BUILDER = new ModConfigSpec.Builder();
 
     // Pacifier
-    //public static ModConfigSpec.BooleanValue pacifierEnabled;
     public static ModConfigSpec.BooleanValue debuggerMode;
-    //public static ModConfigSpec.IntValue default_aggression;
     public static ModConfigSpec.BooleanValue no_surface_spawns;
     public static ModConfigSpec.ConfigValue<List<? extends String>> exclude_mobs;
     public static ModConfigSpec.BooleanValue peaceful_nether;
-    //public static ModConfigSpec.BooleanValue skip_end_dragon;
     public static ModConfigSpec.IntValue cooldown_ticks;
 
     static {
@@ -31,37 +26,26 @@ public class Config {
         // -------------------------------------------------
         // Pacifier
         // -------------------------------------------------
-        BUILDER.comment("Peaceful Bliss").push("peacefulbliss");
 
-        //pacifierEnabled = BUILDER
-        //        .comment("Enable or disable the pacifier system")
-        //        .define("peacefulbliss_enabled", true);
+        //BUILDER.comment("Peaceful Bliss").push("peacefulbliss");
 
         debuggerMode = BUILDER
                 .comment("Enable Debug Console output. Leave false unless otherwise asked!")
-                .define("debug_output", true);
-
-        //default_aggression = BUILDER
-        //        .comment("Default mob aggression: 0=vanilla, 1=passive, 2=aggressive")
-        //        .defineInRange("defaultAggression", 1, 0, 2);
+                .define("debug_output", false);
 
         no_surface_spawns = BUILDER
-                .comment("Turn off surface spawning of Skeletons and Zombies")
+                .comment("Turn off Overworld surface spawning of Creepers, Skeletons, and Zombies")
                 .define("no_surface_spawns", false);
 
         exclude_mobs = BUILDER
                 .comment("Mobs excluded from pacification")
                 .defineListAllowEmpty("exclude_mobs",
                         List.of("minecraft:ender_dragon", "minecraft:wither", "minecraft:elder_guardian","minecraft:enderman", "minecraft:pillager", "minecraft:vindicator",
-                                "minecraft:evoker", "minecraft:ravager"), null, Config::validateEntity);
+                                "minecraft:evoker", "minecraft:ravager"), () -> "minecraft:creeper", Config::validateEntity);
 
         peaceful_nether = BUILDER
                 .comment("Allow pacification in the Nether?")
                 .define("in_nether", false);
-
-        //skip_end_dragon = BUILDER
-        //        .comment("SKip End Dragon Fight on First Enty?")
-        //                .define("skip_end_dragon", true);
 
         cooldown_ticks = BUILDER
                 .comment("Aggression cooldown in ticks (min 100 [5 Sec], max 600 [30 sec])")
