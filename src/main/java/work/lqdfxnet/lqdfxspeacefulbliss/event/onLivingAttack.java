@@ -16,8 +16,6 @@ public class onLivingAttack {
     @SubscribeEvent
     public static void onLivingDamage(LivingDamageEvent.Pre event) {
 
-        LqDFxsPeacefulBliss.LOGGER.info("Who dealt it: {}", getSource.damageSource(event.getSource()));
-
         Entity whoDealt = getSource.damageSource(event.getSource());
         if (whoDealt == null) return;
         if ((whoDealt instanceof Mob mob) && (event.getEntity() instanceof Mob mobA)) {

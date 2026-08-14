@@ -51,7 +51,7 @@ public class Config {
                 .comment("Aggression cooldown in ticks (min 100 [5 Sec], max 600 [30 sec])")
                 .defineInRange("cooldown_ticks", 100, 100, 600);
 
-        BUILDER.pop();
+        //BUILDER.pop();
     }
 
     private static boolean validateEntity(final Object obj) {
